@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.0/jquery.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layui/2.4.3/layui.js"></script>
+</head>
+<body>
+
+<div class="container" style="margin-top: 50px">
+    <form class="form-horizontal" method="post" onsubmit="return false">
+        <div class="form-group">
+            <label class="col-sm-2 control-label text-success">窗口标题</label>
+            <div class="col-sm-10">
+                <input type="text" name="title" value="系统提示" class="form-control" placeholder="请输入窗口标题">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label text-success">内容1</label>
+            <div class="col-sm-10">
+                <div class="input-group">
+                    <input type="text" name="content1" value="" class="form-control" placeholder="请输入内容1">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info alertBtn" type="button">生成</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary btn-block submit" data-loading-text="提交中...">提交</button>
+            </div>
+        </div> -->
+    </form>
+</div>
+
+<script>
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
+    });
+    $('.alertBtn').click(function() {
+        var title = $("input[name='title']");
+        var content = $(this).parent().prev();
+        if (title.val() == '') {
+            layer.msg('请输入窗口标题', {icon: 2});
+            title.focus();
+            return false;
+        }
+        if (content.val() == '') {
+            layer.msg('请输入内容', {icon: 2});
+            content.focus();
+            return false;
+        }
+        layer.confirm(content.val(), {icon: 7, title: title.val()}, function(index){
+            layer.close(index);
+            return false;
+        });
+    });
+</script>
+
+</body>
+</html>
