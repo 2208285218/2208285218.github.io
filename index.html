@@ -57,7 +57,7 @@
             content.focus();
             return false;
         }
-        layer.confirm(content.val(), {icon: 7, title: title.val()}, function(index){
+        layer.alert(content.val(), {icon: 7, title: title.val()}, function(index){
             layer.close(index);
             return false;
         });
