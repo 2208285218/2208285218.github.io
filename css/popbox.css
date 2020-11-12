@@ -1,0 +1,133 @@
+/* reset css */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin: 0;padding: 0;}
+body {font-family:"Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";font-size:14px;color:#211922;}table{font-size:inherit;}pre,code,kbd,samp,tt{font-family:monospace;line-height:100%;}em{font-style:italic;}strong{font-weight:bold;}
+a{text-decoration:none;outline:none;}
+h2{margin-top:10px;}
+/* base css */
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.clearfix{zoom:1;}
+.invisible{visibility:hidden!important;}
+/* alert,confirm,prompt component */
+#popbox-overlay{
+	position:fixed;
+	_position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	padding:50px 0;
+	opacity:.5;
+	filter:alpha(opacity=0);
+	z-index:1000;
+}
+#popbox-overlay-inner{
+	position:fixed;
+	_position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:#000;
+}
+#popbox-wrap{
+	position:fixed;
+	_position:absolute;
+	z-index:1001;
+	border:10px solid #ebebeb;
+	border-radius:4px;
+	box-shadow:0 0 10px rgba(0,0,0,.7);
+}
+#popbox-tab{
+	border: 0;
+	margin: 0;
+	border-collapse: collapse;
+	width: auto;
+}
+#popbox-title{
+	height:25px;
+	background-color:#ebebeb;
+	cursor:move;
+}
+#popbox-close{
+	position:absolute;
+	right:0;
+	top:0;
+	color:#333;
+	line-height:15px;
+	font-size:24px;
+	font-family: Helvetica, STHeiti;
+	font-weight:bold;
+	display:block;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .9);
+}
+#popbox-close:hover{
+	color:#800;
+}
+#popbox-content{
+	width:auto;
+	padding:15px;
+	background-color:#F8F8F8;
+	border:1px solid #dbdbdb;
+	+display:inline-block;
+}
+#popbox-bottom{
+	padding-top:5px;
+	background-color:#ebebeb;
+	text-align:right;
+	width: auto;
+}
+#popbox-ok,#popbox-cancel{
+	font-family:"Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";
+	border:1px solid #dedede;
+	display:inline-block;
+	width:55px;
+	height:25px;
+	color:#fff;
+	cursor:pointer;
+	position:relative;
+	background-color:#07b;
+	white-space: nowrap;
+	border-radius:3px;
+	box-shadow:1px 1px 0 rgba(0,0,0,.3);
+}
+#popbox-cancel{
+	margin-left:10px;
+}
+#popbox-ok:hover,#popbox-cancel:hover{
+	background-color:#08c;
+}
+#popbox-ok:active,#popbox-cancel:active{
+	top:1px;
+	left:1px;
+}
+#popbox-prompt-input{
+	display:block;
+	margin:5px 0;
+	padding:3px 5px;
+	height:18px;
+	border:1px solid #bbb;
+	outline:none;
+	box-shadow:0 0 2px rgba(0,0,0,.3) inset;
+}
+#drag-mask{
+	display:none;
+	position:fixed;
+	_position:absolute;
+	opacity:0;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:2000;
+	cursor:move;
+	-moz-user-select:none; 
+}
+#ie6-sect-fix{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1;
+}
+
