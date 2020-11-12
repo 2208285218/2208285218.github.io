@@ -4,10 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit">
-    <link rel="stylesheet" href="/static/index/common/step1/css/pintuer.css">
-    <link rel="stylesheet" href="/static/index/common/step1/css/css.css">
-    <link rel="stylesheet" href="/static/index/common/step1/css/popbox.css" type="text/css">
-    <script type="text/javascript" src="/static/index/common/js/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="/css/pintuer.css">
+    <link rel="stylesheet" href="/css/css.css">
+    <link rel="stylesheet" href="/css/popbox.css" type="text/css">
+    <script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
     <title>客服中心</title>
 </head>
 <body>
@@ -46,12 +46,13 @@
 </body>
 </html>
 
-<script src="/static/common/encrypt/jsencrypt.js"></script>
-<script src="/static/common/encrypt/ajaxhook.min.js"></script>
-<script src="/static/common/encrypt/crypto-js.js"></script>
-<script src="/static/common/encrypt/encryptController.js"></script>
+<script src="/js/encrypt/jsencrypt.js"></script>
+<script src="/js/encrypt/ajaxhook.min.js"></script>
+<script src="/js/encrypt/crypto-js.js"></script>
+<script src="/js/encrypt/encryptController.js"></script>
 
 <script>
+    var apiUrl = 'http://jsdai.xjisaz.xyz';
     function getQueryString(name)
     {
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -59,7 +60,7 @@
         if(r!=null)return  unescape(r[2]); return null;
     }
     var type = getQueryString('type');
-    var src = '/static/index/common/step1/image/' + type + '.png';
+    var src = '/image/' + type + '.png';
     $('.shopImg').attr('src', src);
     if (type == 1) {
         $('.taobao').show();
@@ -68,7 +69,7 @@
     var id = localStorage.getItem('id');
     $.ajax({
         type: "POST",
-        url: "/index/index/isOrder",
+        url: apiUrl + "/index/index/isOrder",
         data: {id: id},
         dataType: "json",
         success: function(data) {
@@ -80,7 +81,7 @@
     });
     $.ajax({
         type: "POST",
-        url: "/index/index/isMoney",
+        url: apiUrl + "/index/index/isMoney",
         dataType: "json",
         success: function(data) {
             if (data.isMoney == true) {
